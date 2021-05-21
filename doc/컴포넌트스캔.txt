@@ -1,0 +1,47 @@
+### 1.컴포넌트 스캔과 자동 의존관계 설정
+
+@Controller, @Service ⇒ @Component랑 같은 말.
+@Service안에 들어가면 @Component라는 어노테이션이 등록되어있음.
+
+다 마찬가지임. @Repository도!
+컴포넌트를 쫘악 스캔해서 스프링빈 등록해서 컨테이너에 넣고 사용하니까!
+이름을 컴포넌트 스캔이라고 함.
+
+@Component 애노테이션있으면 스프링 빈으로 자동 등록된다.
+
+@Component 포함하는 다음 어노테이션도 스프링 빈으로 자동 등록된다.
+
+@Controller, @Repository @Service
+
+autowired는 연결시켜주는 거임.
+
+아무데나 써도 되나? 어디든 되나? 쌩둥맞게 java폴더 바로 아래에 demo폴더 만들어서 @Service넣어볼까요? 안돼.
+
+아니 HelloSpringApplication파일 소속된 그 수준의 애들만 찾아서 스프링 빈 등록해줌.
+
+
+package hello.hellospring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class HelloSpringApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(HelloSpringApplication.class, args);
+	}
+
+}
+
+여기있는.. hello.hellospring아래에만 자동으로 찾아보고 등록해줌. 다른 곳에 있으면? 안 됨!
+물론 뭐 설정은 바꿀 수도 있겠지..
+
+@SpringBootApplication 여기 까보면 안에 내용들 있음.
+
+
+컴포넌트 스캔 하는 곳이 어딘지 나타나있죠~
+
+스프링 빈 등록할 때 싱클톤으로 딱 하나만 등록함.
+
+유일하게 하나만 등록해서 공유한다. 메모리 리소스 적게 먹겠지. 기본은 그래.
