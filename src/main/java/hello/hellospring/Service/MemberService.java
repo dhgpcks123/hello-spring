@@ -15,8 +15,14 @@ public class MemberService {
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+       this.memberRepository = memberRepository;
     }
+
+//    private MemberRepository memberRepository;
+//
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
 
     /**
      * member로 회원가입
