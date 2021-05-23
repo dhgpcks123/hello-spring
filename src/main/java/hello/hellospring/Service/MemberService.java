@@ -32,10 +32,12 @@ public class MemberService {
      * @return
      */
     public Long join(Member member){
+
         //같은 이름이 있는 경우 회원x
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();
+
     }
 
     private void validateDuplicateMember(Member member) {
