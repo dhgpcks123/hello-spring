@@ -21,6 +21,7 @@ class MemoryMemberRepositoryTest {
 
 
     @Test
+//    @Commit 이렇게 쓰면 커밋도 됨
     public void save(){
         Member member = new Member();
         member.setName("spring");
